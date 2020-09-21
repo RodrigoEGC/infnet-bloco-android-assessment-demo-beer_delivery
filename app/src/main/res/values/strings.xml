@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Assessment Demo Beer Delivery</string>
+    <string name="title_activity_home">Assessment Demo Beer Delivery</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="beer_logo">Beer Logo</string>
+    <string name="beername">Beername</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="register_here">Register Here.</string>
+    <string name="todo">TODO</string>
+    <string name="enter">Enter</string>
+    <string name="beer_delivery">Beer Delivery</string>
+    <string name="assessment_infnet_by_rodrigo">Assessment Infnet by Rodrigo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="text_beer">Text Beer</string>
+    <string name="text_info_description">Text Info Description</string>
+    <string name="text_price">Text Price</string>
+    <string name="bee_text_example">Bee Text Example</string>
+    <string name="image_example">Image Example</string>
+    <string name="image_example_rate">Image Example Rate</string>
+    <string name="checkout">Checkout</string>
+    <string name="total">Total</string>
+    <string name="buy">Buy</string>
+    <string name="enter_your_information_below_to_complete_your_purchaser">Enter your information below to complete your purchaser</string>
+    <string name="your_name">Your name</string>
+    <string name="your_email">Your Email</string>
+    <string name="your_address">Your address</string>
+    <string name="add_payment_method">Add payment method</string>
+    <string name="cancel_and_return_to_cart">Cancel and return to cart</string>
+    <string name="count">Count</string>
+    <string name="quantity">Qty</string>
+    <string name="total_example">Total Example</string>
+</resources>

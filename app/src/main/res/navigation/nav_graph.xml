@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.noplayer.assessmentdemobeerdelivery.fragment.BeerListFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_beer_list">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_beerInfoFragment"
+            app:destination="@id/beerInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.noplayer.assessmentdemobeerdelivery.fragment.BeerCartFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_beer_cart">
+        <action
+            android:id="@+id/action_SecondFragment_to_resultActivity"
+            app:destination="@id/resultActivity" />
+    </fragment>
+    <fragment
+        android:id="@+id/beerInfoFragment"
+        android:name="com.noplayer.assessmentdemobeerdelivery.fragment.BeerInfoFragment"
+        android:label="fragment_beer_info"
+        tools:layout="@layout/fragment_beer_info" >
+        <action
+            android:id="@+id/action_beerInfoFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_beerInfoFragment_to_resultActivity"
+            app:destination="@id/resultActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/resultActivity"
+        android:name="com.noplayer.assessmentdemobeerdelivery.ResultActivity"
+        android:label="activity_result"
+        tools:layout="@layout/activity_result" />
+</navigation>

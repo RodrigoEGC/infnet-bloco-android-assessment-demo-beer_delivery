@@ -39,4 +39,8 @@
     <string name="count">Count</string>
     <string name="quantity">Qty</string>
     <string name="total_example">Total Example</string>
+    <string name="learn_more_about_this_product">Learn more about this product</string>
+    <string name="info_more_beer">Hello! We are currently under construction. Read more about the product by clicking the button below. Thank you!</string>
+    <string name="close_purchase">Close Purchase</string>
+    <string name="choose_more_products">Choose more</string>
 </resources>

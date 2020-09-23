@@ -27,38 +27,38 @@
             android:src="@drawable/ic_checkout_shopping_cart"
             android:tint="@android:color/white"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beerInfoDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/beer_info_name" />
 
         <ImageButton
-            android:id="@+id/addCart"
+            android:id="@+id/add_cart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginStart="15dp"
             android:background="@color/colorPrimary"
+            android:contentDescription="@string/todo"
             android:paddingHorizontal="16dp"
             android:paddingVertical="4dp"
             android:src="@drawable/ic_add_shopping"
             android:tint="@android:color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buy"
-            android:contentDescription="@string/todo" />
+            app:layout_constraintBottom_toBottomOf="@+id/buy"
+            app:layout_constraintStart_toEndOf="@+id/buy"
+            app:layout_constraintTop_toTopOf="@+id/buy" />
+
 
         <ImageView
-            android:id="@+id/beerInfoPhoto"
+            android:id="@+id/beer_info_photo"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:scaleType="centerCrop"
             android:src="@drawable/kit_bamberg"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/image_example"
             />
 
         <TextView
-            android:id="@+id/beerInfoName"
+            android:id="@+id/beer_info_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -68,49 +68,47 @@
             android:textColor="#000000"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beerInfoPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/beer_info_description"
             />
 
         <TextView
-            android:id="@+id/beerInfoDescription"
+            android:id="@+id/beer_info_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:fontFamily="sans-serif-small"
             android:hint="@string/text_info_description"
-            android:textColor="#000000"
+            android:textColor="@color/info"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/beerInfoName"
+            app:layout_constraintTop_toBottomOf="@+id/beer_info_photo"
             />
 
         <TextView
-            android:id="@+id/beerInfoPrice"
+            android:id="@+id/beer_info_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:textColor="@android:color/holo_red_light"
+            android:textColor="@color/red"
             app:layout_constraintBottom_toBottomOf="@+id/buy"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="R$199.99"
             />
 
         <ImageView
-            android:id="@+id/highlyRatedIcon"
+            android:id="@+id/highly_rated_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="15dp"
             android:visibility="invisible"
-            app:layout_constraintBottom_toBottomOf="@+id/buy"
-            app:layout_constraintStart_toEndOf="@+id/buy"
+            app:layout_constraintBottom_toBottomOf="@+id/add_cart"
+            app:layout_constraintStart_toEndOf="@+id/add_cart"
             app:srcCompat="@drawable/high_rate"
             app:tint="@color/colorPrimaryDark"
             android:contentDescription="@string/image_example_rate"
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </ScrollView>

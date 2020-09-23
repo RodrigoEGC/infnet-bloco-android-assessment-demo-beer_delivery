@@ -1,25 +1,26 @@
 package com.noplayer.assessmentdemobeerdelivery.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.noplayer.assessmentdemobeerdelivery.R
 import com.noplayer.assessmentdemobeerdelivery.model.CartBeerItem
-import kotlinx.android.synthetic.main.cart_beer_item_list.*
 import kotlinx.android.synthetic.main.cart_beer_item_list.view.*
 
 
-class BeerCartRecyclerAdapter(
-    private val cartBeerItem: List<CartBeerItem>)
+class BeerCartRecyclerAdapter (
+    private val cartBeerItem: List<CartBeerItem>,
+    private val addItem: (cartBeerItem: CartBeerItem) -> Unit,
+    private val removeItem: (cartBeerItem: CartBeerItem) -> Unit
+)
     : RecyclerView.Adapter<BeerCartRecyclerAdapter.BeerCartViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BeerCartViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.cart_beer_item_list, parent, false)
-
         return BeerCartViewHolder(view)
     }
 
@@ -31,24 +32,27 @@ class BeerCartRecyclerAdapter(
 
     override fun getItemCount() = cartBeerItem.size
 
-    class BeerCartViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class BeerCartViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        @SuppressLint("SetTextI18n")
         fun bindItem(cartBeerItem: CartBeerItem) {
-            itemView.beerCartName.text = cartBeerItem.beerItem.name
-            itemView.beerCartPrice.text = "R$${cartBeerItem.beerItem.price}"
-            itemView.beerCartQuantity.text = cartBeerItem.quantity.toString()
-            Glide.with(view).load(cartBeerItem.beerItem.photo).into(itemView.beerCartPhoto)
+            itemView.beer_cart_name.text = cartBeerItem.beerItem.name
+            itemView.beer_cart_price.text = "R$${cartBeerItem.beerItem.price}"
+            itemView.beer_cart_quantity.text = cartBeerItem.quantity.toString()
+            Glide.with(view).load(cartBeerItem.beerItem.photo).into(itemView.beer_cart_photo)
 
-            itemView.btnAddCount.setOnClickListener {
-                var quantity = 0
-                itemView.beerCartQuantity.text = (quantity + 1).toString()
+            itemView.btn_add_count.setOnClickListener {
+                cartBeerItem.quantity = cartBeerItem.quantity++
+                itemView.beer_cart_quantity.text = cartBeerItem.quantity.toString()
+                notifyDataSetChanged()
+                addItem(cartBeerItem)
             }
 
-            itemView.btnSubCount.setOnClickListener {
-                val item = cartBeerItem.quantity
-                item - 1
+            itemView.btn_sub_count.setOnClickListener {
+                cartBeerItem.quantity = cartBeerItem.quantity--
+                itemView.beer_cart_quantity.text = cartBeerItem.quantity.toString()
+                notifyDataSetChanged()
+                removeItem(cartBeerItem)
             }
         }
     }
-
-
 }

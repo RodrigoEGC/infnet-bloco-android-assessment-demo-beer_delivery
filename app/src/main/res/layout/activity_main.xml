@@ -18,7 +18,7 @@
     />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/beer_delivery"
@@ -30,7 +30,7 @@
     />
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -38,7 +38,7 @@
     />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/text_view_credits"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"

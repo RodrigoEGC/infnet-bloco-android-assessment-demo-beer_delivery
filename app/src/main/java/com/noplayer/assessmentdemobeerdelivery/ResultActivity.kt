@@ -1,79 +1,73 @@
 package com.noplayer.assessmentdemobeerdelivery
 
+import android.content.ActivityNotFoundException
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
-import android.provider.MediaStore
-import android.view.View
 import android.widget.Toast
-import androidx.annotation.RequiresApi
-import kotlinx.android.synthetic.main.activity_main.*
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_result.*
 
 class ResultActivity : AppCompatActivity() {
-    private val galleryRequestCode = 123
-    private val LOCATION_PERMISSION_REQUEST_CODE = 2000
-    private var pictureTaken: Boolean = false
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        btnIntent.setOnClickListener {
-            val intent = Intent()
-            intent.type = "image/*"
-            intent.action = Intent.ACTION_GET_CONTENT
-            startActivityForResult(Intent.createChooser(intent, "Pick an image"), galleryRequestCode)
+        setInfoView()
+
+        btn_add_form_pay.setOnClickListener {
+            Snackbar.make(
+                it,"Demo Finished! Thank you for using Beer Delivery!", Snackbar.LENGTH_LONG
+            ).show()
+        }
+
+        btn_back_list.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 
-    @RequiresApi(Build.VERSION_CODES.P)
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == RESULT_OK) {
-            if (requestCode == galleryRequestCode) {
-                // now we can get the thumbnail
-                val imageBitmap = data!!.extras!!.get("data") as Bitmap
-                imageView.setImageBitmap(imageBitmap)
-            }
 
+    private fun openChrome(url: String) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        intent.setPackage("com.android.chrome")
+        try {
+            startActivity(intent)
+        } catch (ex: ActivityNotFoundException) {
+            intent.setPackage(null)
+            Toast.makeText(this, "No browser in your device", Toast.LENGTH_SHORT).show()
         }
+    }
 
-        fun prepOpenImageGallery() {
-            Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI).apply {
-                type = "image/*"
-                startActivityForResult(this, galleryRequestCode)
-            }
-        }
+    private fun setInfoView() {
 
-        fun onRequestPermissionsResult(
-            requestCode: Int,
-            permissions: Array<out String>,
-            grantResults: IntArray
-        ) {
-            when (requestCode) {
-                LOCATION_PERMISSION_REQUEST_CODE -> {
-                    if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    } else {
-                        Toast.makeText(
-                            this,
-                            "Unable to update location without permission",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                }
-                else -> {
-                    super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-                }
+        val nameInfoFragment: String? =  intent.getStringExtra("ItemInfoFragment")
+
+        val urlInfoFragment: String? =  intent.getStringExtra("UrlInfoFragment")
+
+        val name: String? =  intent.getStringExtra("Name")
+
+        val url: String? =  intent.getStringExtra("Url")
+
+        if (nameInfoFragment != null) {
+            info_detail_beer_Item.text = nameInfoFragment
+
+            btn_more_beer.setOnClickListener {
+                openChrome(urlInfoFragment!!)
             }
         }
+
+        if (name != null) {
+            info_detail_beer_Item.text = name
+
+            btn_more_beer.setOnClickListener {
+                openChrome(url!!)
+            }
+        }
+
     }
 
 }

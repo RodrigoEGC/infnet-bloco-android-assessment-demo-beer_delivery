@@ -10,6 +10,8 @@ class BeerCartViewModel: ViewModel() {
 
     var quantityAccumulator = MutableLiveData<String>()
 
+    var price = MutableLiveData<String>()
+
     fun addItem(cartBeerItem: CartBeerItem) {
        saveItems.add(cartBeerItem)
     }
@@ -18,14 +20,22 @@ class BeerCartViewModel: ViewModel() {
         return saveItems
     }
 
-
-    fun addCountItem(qtde: Int) {
-        qtde + 1
+    fun addCountItem(cartBeerItem: CartBeerItem) {
+        val index = saveItems.indexOf(cartBeerItem)
+        saveItems[index].quantity = (saveItems[index].quantity + 1)
     }
 
-    fun subCountItem(qtde: Int) {
-        qtde - 1
+    fun subCountItem(cartBeerItem: CartBeerItem) {
+        val index = saveItems.indexOf(cartBeerItem)
+        saveItems[index].quantity = (saveItems[index].quantity - 1)
+        if (saveItems[index].quantity == 0) {
+            removeCart(cartBeerItem)
+        }
     }
 
+    private fun removeCart(cartBeerItem: CartBeerItem) {
+        val index = saveItems.indexOf(cartBeerItem)
+        saveItems.removeAt(index)
+    }
 
 }

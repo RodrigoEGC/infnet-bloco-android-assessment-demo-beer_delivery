@@ -8,7 +8,7 @@
     tools:context=".fragment.BeerCartFragment">
 
     <ImageView
-        android:id="@+id/beerCartPhoto"
+        android:id="@+id/beer_cart_photo"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginEnd="1dp"
@@ -20,53 +20,53 @@
 
 
     <TextView
-        android:id="@+id/beerCartName"
+        android:id="@+id/beer_cart_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        app:layout_constraintBottom_toTopOf="@+id/beerCartQuantity"
-        app:layout_constraintStart_toEndOf="@+id/beerCartPhoto"
+        app:layout_constraintBottom_toTopOf="@+id/beer_cart_quantity"
+        app:layout_constraintStart_toEndOf="@+id/beer_cart_photo"
         app:layout_constraintTop_toTopOf="parent"
         android:text="@string/text_beer" />
 
     <TextView
-        android:id="@+id/beerCartQuantity"
+        android:id="@+id/beer_cart_quantity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/beerCartName"
-        app:layout_constraintTop_toBottomOf="@+id/beerCartName"
+        app:layout_constraintStart_toStartOf="@+id/beer_cart_name"
+        app:layout_constraintTop_toBottomOf="@+id/beer_cart_name"
         android:hint="@string/quantity" />
 
     <ImageButton
-        android:id="@+id/btnSubCount"
+        android:id="@+id/btn_sub_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:background="@color/colorSecondary"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/beerCartQuantity"
-        app:layout_constraintStart_toEndOf="@+id/beerCartQuantity"
-        app:layout_constraintTop_toTopOf="@+id/beerCartQuantity"
-        app:srcCompat="@drawable/ic_remove" />
+        android:layout_marginStart="12dp"
+        android:background="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="@+id/beer_cart_quantity"
+        app:layout_constraintStart_toEndOf="@+id/beer_cart_quantity"
+        app:layout_constraintTop_toTopOf="@+id/beer_cart_quantity"
+        app:srcCompat="@drawable/ic_remove"
+        android:contentDescription="@string/todo" />
 
     <ImageButton
-        android:id="@+id/btnAddCount"
+        android:id="@+id/btn_add_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:background="@color/colorPrimary"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSubCount"
-        app:layout_constraintStart_toEndOf="@+id/btnSubCount"
-        app:layout_constraintTop_toTopOf="@+id/btnSubCount"
-        app:srcCompat="@drawable/ic_add" />
+        android:layout_marginStart="12dp"
+        android:background="@color/colorSecondary"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_sub_count"
+        app:layout_constraintStart_toEndOf="@+id/btn_sub_count"
+        app:layout_constraintTop_toTopOf="@+id/btn_sub_count"
+        app:srcCompat="@drawable/ic_add"
+        android:contentDescription="@string/todo" />
 
 
     <TextView
-        android:id="@+id/beerCartPrice"
+        android:id="@+id/beer_cart_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"

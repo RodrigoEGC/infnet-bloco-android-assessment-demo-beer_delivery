@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.noplayer.assessmentdemobeerdelivery.model.BeerItem
 import com.noplayer.assessmentdemobeerdelivery.repository.BeerData
 
-class BeerItemViewModel: ViewModel() {
+class BeerListViewModel: ViewModel() {
 
     var getBeerItem: BeerItem? = null
 

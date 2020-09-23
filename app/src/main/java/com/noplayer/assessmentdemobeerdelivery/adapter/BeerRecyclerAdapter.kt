@@ -1,5 +1,6 @@
 package com.noplayer.assessmentdemobeerdelivery.adapter
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,10 +36,11 @@ class BeerRecyclerAdapter(
     override fun getItemCount(): Int = beerItems.size
 
     class BeerViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        @SuppressLint("SetTextI18n")
         fun bind(beerItem: BeerItem) {
-            itemView.beerItemTitle.text = beerItem.name
-            itemView.beerPrice.text = "Price: R$ ${beerItem.price}"
-            Glide.with(view).load(beerItem.photo).into(itemView.mainPhoto)
+            itemView.beer_item_title.text = beerItem.name
+            itemView.beer_price.text = "Price: R$ ${beerItem.price}"
+            Glide.with(view).load(beerItem.photo).into(itemView.main_photo)
         }
     }
 }

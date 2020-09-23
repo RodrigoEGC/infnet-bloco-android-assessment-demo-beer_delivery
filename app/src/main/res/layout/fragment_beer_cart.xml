@@ -24,25 +24,37 @@
             android:layout_width="match_parent"
             android:layout_height="16dp" />
 
-
         <TextView
-            android:id="@+id/totalPrice"
+            android:id="@+id/total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:textColor="@color/red"
             android:layout_margin="8dp"
-            android:hint="@string/total_example"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6" />
+            android:textSize="20sp"
+            tools:text="R$199.99"/>
 
         <Button
-            android:id="@+id/goCheckout"
-            android:layout_width="wrap_content"
+            android:id="@+id/btn_back"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
+            android:layout_gravity="start"
+            android:textColor="@color/white"
             android:background="@color/colorSecondary"
             android:layout_margin="8dp"
-            android:text="@string/buy"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption" />
+            android:textAllCaps="false"
+            android:text="@string/choose_more_products"/>
+
+        <Button
+            android:id="@+id/btn_checkout"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:textColor="@color/white"
+            android:background="@color/colorSecondary"
+            android:layout_margin="8dp"
+            android:textAllCaps="false"
+            android:text="@string/close_purchase"/>
 
     </LinearLayout>
 
